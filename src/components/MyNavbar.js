@@ -38,8 +38,11 @@ export default class MyNavbar extends React.Component {
                 Keygo <FaGithub />
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item disabled href="#home">
-                Coming soon...
+              <NavDropdown.Item
+                target="_blank"
+                href="https://github.com/kklengel/frontend"
+              >
+                This Page itself <FaGithub />
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
