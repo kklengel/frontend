@@ -1,17 +1,19 @@
 import React from "react";
 import "./App.css";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 
-import NewsLetterForm from "./components/NewsLetterForm.js";
-import MyNavbar from "./components/MyNavbar.js";
-import Profile from "./components/Profile";
+import TheNavbar from "./components/TheNavbar.js";
 
 import Toast from "react-bootstrap/Toast";
 
 import { IconContext } from "react-icons";
 import { FaCheck } from "react-icons/fa";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import Home from "./views/Home.js";
+import Newsletter from "./views/Newsletter.js";
+import AboutMe from "./views/AboutMe.js";
+import Contact from "./views/Contact.js";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -22,7 +24,7 @@ export default class App extends React.Component {
     this.state = { showToast: false };
   }
 
-  updateToast = event => {
+  updateToast = (event) => {
     event.preventDefault();
     this.setState({ showToast: true });
   };
@@ -34,49 +36,49 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <MyNavbar />
-        <body>
-          <Container fluid>
-            <Row>
-              <Col>
-                <Toast
-                  style={{
-                    alignContent: "center"
-                  }}
-                  className="toast"
-                  onClose={() => this.disableToast()}
-                  show={this.state.showToast}
-                  delay={3000}
-                  autohide
-                  animation={true}
-                >
-                  <Toast.Body>
-                    <IconContext.Provider
-                      value={{ color: "green", className: "global-class-name" }}
-                    >
-                      <div>
-                        <FaCheck />
-                      </div>
-                    </IconContext.Provider>
-                    Subscription successful!
-                  </Toast.Body>
-                </Toast>
-              </Col>
-            </Row>
+        <Router>
+          <TheNavbar />
 
-            <Row>
-              <Col>
-                <Profile />
-              </Col>
-            </Row>
+          <Toast
+            style={{
+              alignContent: "center",
+            }}
+            className="toast"
+            onClose={() => this.disableToast()}
+            show={this.state.showToast}
+            delay={3000}
+            autohide
+            animation={true}
+          >
+            <Toast.Body>
+              <IconContext.Provider
+                value={{ color: "green", className: "global-class-name" }}
+              >
+                <div>
+                  <FaCheck />
+                </div>
+              </IconContext.Provider>
+              Subscription successful!
+            </Toast.Body>
+          </Toast>
 
-            <Row style={{ backgroundColor: "lightgrey" }}>
-              <Col>
-                <NewsLetterForm onSubmitHandler={this.updateToast} />
-              </Col>
-            </Row>
-          </Container>
-        </body>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/newsletter">
+              <Newsletter />
+            </Route>
+
+            <Route exact path="/about-me">
+              <AboutMe />
+            </Route>
+
+            <Route exact path="/contact">
+              <Contact />
+            </Route>
+          </Switch>
+        </Router>
       </div>
     );
   }
