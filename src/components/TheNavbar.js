@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
 import logo from "./logo.png";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaJs } from "react-icons/fa";
 import { LinkContainer } from "react-router-bootstrap";
 
 export default class MyNavbar extends React.Component {
@@ -35,6 +35,12 @@ export default class MyNavbar extends React.Component {
             </LinkContainer>
 
             <NavDropdown title="Projects" id="basic-nav-dropdown">
+              <NavDropdown.Item
+                target="_blank"
+                href="https://github.com/kklengel/ld46"
+              >
+                Ludum Dare 46 - Bullet Blocker <FaJs />
+              </NavDropdown.Item>
               <NavDropdown.Item
                 target="_blank"
                 href="https://github.com/kklengel/tictactoe"
