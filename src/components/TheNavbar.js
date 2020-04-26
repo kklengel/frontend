@@ -34,7 +34,13 @@ export default class MyNavbar extends React.Component {
               <Nav.Link>Newsletter</Nav.Link>
             </LinkContainer>
 
-            <NavDropdown title="Projects" id="basic-nav-dropdown">
+            <NavDropdown title="Games">
+              <NavDropdown.Item href="/games/ld46">
+                Ludum Dare 46 - Bullet Blocker <FaJs />
+              </NavDropdown.Item>
+            </NavDropdown>
+
+            <NavDropdown title="Projects">
               <NavDropdown.Item
                 target="_blank"
                 href="https://github.com/kklengel/ld46"

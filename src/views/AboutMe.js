@@ -11,6 +11,7 @@ export default class AboutMe extends React.Component {
         <Row>
           <Col>
             <h1> About me</h1>
+            <i>Currently work in progress</i>
           </Col>
         </Row>
       </Container>

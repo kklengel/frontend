@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./views/Home.js";
 import Newsletter from "./views/Newsletter.js";
+import LD46 from "./views/LD46.js";
 import AboutMe from "./views/AboutMe.js";
 import Contact from "./views/Contact.js";
 
@@ -68,6 +69,9 @@ export default class App extends React.Component {
             </Route>
             <Route exact path="/newsletter">
               <Newsletter />
+            </Route>
+            <Route exact path="/games/ld46">
+              <LD46> </LD46>
             </Route>
 
             <Route exact path="/about-me">
